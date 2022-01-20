@@ -1,2 +1,3 @@
 2_docker_sql_me/ny_taxi_postgres_data
 1_terraform_gcp/keys
+2_docker_sql_me/yellow_tripdata_2021-01.csv
