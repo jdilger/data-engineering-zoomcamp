@@ -1,0 +1,58 @@
+services:
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
+    volumes:
+      - postgres-db-volume:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "airflow"]
+      interval: 5s
+      retries: 5
+    restart: always
+
+docker run -it \
+    -e POSTGRES_USER="tool" \
+    -e POSTGRES_PASSWORD="tool" \
+    -e POSTGRES_DB="ny_taxi" \
+    -v C:/Users/johnj/Documents/selflearning/data_zoomcamp/data-engineering-zoomcamp/week_1_basics_n_setup/2_docker_sql_me/ny_taxi_postgres_data:/var/lib/postgresql/data \
+    -p 5431:5432 \
+    postgres:13
+
+
+docker run -it     -e POSTGRES_USER="root"     -e POSTGRES_PASSWORD="root"     -e POSTGRES_DB="ny_taxi"     -v C:/Users/johnj/Documents/selflearning/data_zoomcamp/data-engineering-zoomcamp/week_1_basics_n_setup/2_docker_sql_me/ny_taxi_postgres_data:/var/lib/postgresql/data     -p 5432:5432     postgres:13
+
+
+// running pgadmin with docker
+
+docker run -it \
+  -e PGADMIN_DEFAULT_EMAIL="admin@admin.com" \
+  -e PGADMIN_DEFAULT_PASSWORD="root" \
+  -p 8081:80 \
+  dpage/pgadmin4
+
+
+## network
+docker run -it \
+    -e POSTGRES_USER="tool" \
+    -e POSTGRES_PASSWORD="tool" \
+    -e POSTGRES_DB="ny_taxi" \
+    -v C:/Users/johnj/Documents/selflearning/data_zoomcamp/data-engineering-zoomcamp/week_1_basics_n_setup/2_docker_sql_me/ny_taxi_postgres_data:/var/lib/postgresql/data \
+    -p 5431:5432 \
+    --network=pg-network \
+    --name pg-database \
+    postgres:13
+
+docker run -it \
+  -e PGADMIN_DEFAULT_EMAIL="admin@admin.com" \
+  -e PGADMIN_DEFAULT_PASSWORD="root" \
+  -p 8081:80 \
+  --network=pg-network \
+  --name pg-admin2 \
+  dpage/pgadmin4
+
+  # alt if container is saved
+
+
