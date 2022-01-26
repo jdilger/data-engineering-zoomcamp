@@ -12,6 +12,11 @@
 .history
 **/ny_taxi_postgres_data/*
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 **/yellow_tripdata_2021-01.csv
 >>>>>>> 6a9f6a3 (k)
+=======
+**/yellow_tripdata_2021-01.csv
+week_1_basics_n_setup/2_docker_sql_me/taxi+_zone_lookup.csv
+>>>>>>> 4832e89 (k)
